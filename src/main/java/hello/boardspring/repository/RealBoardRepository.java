@@ -4,6 +4,7 @@ import hello.boardspring.domain.Board;
 
 import java.util.*;
 
+//도메인 객체(board)가 저장되는 리포지토리에 대한 클래스( 자료구조에서 스택, 큐 같이 자료가 저장되는 곳을 구현한 거 같은 거)
 public class RealBoardRepository implements BoardRepository{
    
     private static Map<Long,Board> store=new HashMap<>();//Map<키, 값>
