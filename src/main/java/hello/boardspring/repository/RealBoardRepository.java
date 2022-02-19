@@ -40,4 +40,8 @@ public class RealBoardRepository implements BoardRepository{
         return new ArrayList<>(store.values()) ;//ArrayList는 자바의 List 인터페이스를 상속받은 여러 클래스 중 하나입니다.
         //배열과의 차이점은 배열이 크기가 고정인 반면 ArrayList는 크기가 가변적으로 변합니다.
     }
+    
+    public void clearStore(){
+        store.clear();
+    }
 }
