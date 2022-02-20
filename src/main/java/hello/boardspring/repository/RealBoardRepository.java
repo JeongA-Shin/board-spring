@@ -1,10 +1,12 @@
 package hello.boardspring.repository;
 
 import hello.boardspring.domain.Board;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 //도메인 객체(board)가 저장되는 리포지토리에 대한 클래스( 자료구조에서 스택, 큐 같이 자료가 저장되는 곳을 구현한 거 같은 거)
+//자동 컴포넌트 스캔 방식으로 빈 등록//@Repository//서비스와 마찬가지로 리포지토리 클래스에도 @Repository라는 어노테이션이 있어야 스프링이 리포지토리로 찾아낼 수 있음
 public class RealBoardRepository implements BoardRepository{
    
     private static Map<Long,Board> store=new HashMap<>();//Map<키, 값>
