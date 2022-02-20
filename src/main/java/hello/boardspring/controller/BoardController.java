@@ -1,8 +1,14 @@
 package hello.boardspring.controller;
 
+import hello.boardspring.domain.Board;
 import hello.boardspring.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class BoardController {
@@ -33,6 +39,30 @@ public class BoardController {
     }
     
     
+    @GetMapping("/board/new")
+    public String createForm(){
+        return "boards/createBoardForm";
+    }
+    
+    @PostMapping("/board/new")
+    public String create(BoardForm boardForm){//사용자가 쓴 폼이 파라미터로 넘어옴
+        Board board=new Board(); //그러면 이 폼에 대한 새로운 객체를 하나 만들고
+        board.setTitle(boardForm.getTitle()); //제목을 set
+        
+        System.out.println("board title: "+ board.getTitle());//확인됨
+        System.out.println("board idx: "+ board.getIdx());//왜 null이 나올까
+        
+        boardService.register(board); //그리고 리포지토리에 등록 -(서비스의 register 함수가 리포지토리에 등록하는 함수임)
+        
+        return "redirect:/"; //끝나면 홈 화면으로 보냄
+    }
+    
+    @GetMapping("/boards")
+    public String list(Model model){ //파라미터의ㅣ model은 스프링이 자동으로 넘겨줌
+        List<Board> boards=boardService.getAllBoard();
+        model.addAttribute("boards",boards); // 뷰에 넘겨주는 모델 내용
+        return "boards/boardList";
+    }
     
     
 }

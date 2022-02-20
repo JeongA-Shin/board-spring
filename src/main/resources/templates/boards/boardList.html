@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${boards}"> <!--board 안에 boards라는 이름으로 넘겨받은 변수를 each로 각각 하나씩 돌아가면서 넣음-->
+                <td th:text="${board.idx}"></td>
+                <td th:text="${board.title}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container-->
+
+</body>
+</html>
