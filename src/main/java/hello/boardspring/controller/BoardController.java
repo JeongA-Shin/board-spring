@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@Controller
+//@Controller - 잠깐 떼놓음
 public class BoardController {
     
     //이제 얘가 보드 서비스의 로직을 불러와야 함
