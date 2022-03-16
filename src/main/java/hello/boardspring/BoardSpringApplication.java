@@ -16,13 +16,5 @@ public class BoardSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BoardSpringApplication.class, args);
 	}
-	
-//	@Bean
-//	public CommandLineRunner runner(MyBoardRepository myBoardRepository) throws Exception {
-//		return (args) -> {
-//			IntStream.rangeClosed(1, 100).forEach(index ->
-//														  myBoardRepository.save(new MyBoard(Long.valueOf(index),"게시글" + index,"내용" + index, LocalDateTime.now(),LocalDateTime.now())));
-//
-//		};
-//	}
+
 }
