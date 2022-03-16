@@ -1,15 +1,15 @@
 package hello.boardspring;
 
-import hello.boardspring.domain.MyBoard;
-import hello.boardspring.repository.MyBoardRepository;
-import org.springframework.boot.CommandLineRunner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+
 
 import java.time.LocalDateTime;
 import java.util.stream.IntStream;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing
 @SpringBootApplication
 public class BoardSpringApplication {
 

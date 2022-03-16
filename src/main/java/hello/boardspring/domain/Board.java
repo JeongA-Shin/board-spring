@@ -1,31 +1,58 @@
 package hello.boardspring.domain;
-import javax.persistence.*;
 
-@Entity //이제부터 JPA가 관리하는 객체가 된다는 것
-public class Board {
-    
-    @Id //primary key임
-    @GeneratedValue(strategy = GenerationType.SEQUENCE) //db가 자동으로 생성해주되, 이게 SEQUENCE가 됨
-    private Long idx; //데이터를 구분하기 위한 인덱스
-    
-    //@Column(name="boardtitle") : 만약 이 도에인 변수와 JPA 테이블의 컬럼명이 다르면 이 COLUM에 해당 변수를 매핑하라는 의미
-    private String title;
-    
-    public Long getIdx() {
-        return idx;
-    }
-    
-    public void setIdx(Long idx) {
-        this.idx = idx;
-    }
-    
-    public String getTitle() {
-        return title;
-    }
-    
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    
-   
+import hello.boardspring.domain.common.RegModEntity;
+import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+
+@Entity
+@Table(name="board" )
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class Board extends RegModEntity {
+
+  /**
+   *식별번호
+   */
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name="id",nullable = false)
+  private UUID id;
+
+  /**
+   * 글 제목
+   */
+  @Column(name="title")
+  private String title;
+
+  /**
+   * 글 내용 */
+  @Column(name="desc_cont")
+  private String descCont;
+
+
+  //id getter setter
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID Id) {
+    this.id=Id;
+  }
+
 }
