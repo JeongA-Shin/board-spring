@@ -1,11 +1,9 @@
 package hello.boardspring;
 
-import hello.boardspring.domain.Board;
-import hello.boardspring.repository.MyBoardRepository;
-import hello.boardspring.service.MyBoardService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+//import hello.boardspring.domain.Board;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
 
 
 
