@@ -1,15 +1,16 @@
 package hello.boardspring.service;
 
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.Predicate; //따로 dependcy 설치 해줬어야 했음
+import com.querydsl.core.types.Predicate;
 import hello.boardspring.domain.Board;
+import hello.boardspring.domain.QBoard;
 import hello.boardspring.mapper.BoardMapper;
 import hello.boardspring.repository.BoardRepository;
 import java.util.List;
 import java.util.UUID;
+
+
 import lombok.RequiredArgsConstructor;
-
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @RequiredArgsConstructor
 public class BoardService {
+
   private final BoardRepository repository;
   private final BoardMapper mapper;
+
+
+
 
   /**
    * 목록조회
@@ -30,7 +35,7 @@ public class BoardService {
    */
   @Transactional(readOnly = true,isolation = Isolation.READ_UNCOMMITTED)
   public List<Board> getList(Predicate search){
-    return (List<Board>)repository.findAll(search);
+    return (List<Board>)repository.findAll(search); //조건에 맞는 것만
   }
 
   /**
@@ -41,7 +46,7 @@ public class BoardService {
    */
   @Transactional(readOnly = true,isolation=Isolation.READ_UNCOMMITTED)
   public Page<Board> getPage(Predicate search, Pageable page){ //page에는 페이징 조건
-    return repository.findAll(search,page);
+    return repository.findAll(search,page); //즉 검색 조건과 페이징 조건을 가지고 findAll
   }
 
   /**
@@ -56,13 +61,13 @@ public class BoardService {
 
 
   /**
-   * 조회 (Read)
+   * 상세 조회 (Read)
    * @Params  id 식별번호
    * @return
    */
   @Transactional(readOnly = true)
   public Board get(UUID id){
-    return repository.findOne(new BooleanBuilder(QBoard.Board.id.eq(id)));
+    return repository.findOne(new BooleanBuilder(QBoard.board.id.eq(id))).orElse(null);
   }
 
 
@@ -71,7 +76,7 @@ public class BoardService {
    *  @parma entity
    *  @return
    */
-  public Board modify(UUID id,Board entity){ //entity는 얘로 수정이 되어야 하는 객체. 즉 수정본
+  public Board modify(UUID id,Board entity){ //entity는 얘로 수정이 되어야 하는 객체. 즉 수정본의 내용
     entity.setId(id);
     return mapper.modify(entity,get(entity.getId()));
 
