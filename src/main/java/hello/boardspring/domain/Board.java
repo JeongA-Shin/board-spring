@@ -25,13 +25,14 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+
 public class Board extends RegModEntity {
 
   /**
    *식별번호
    */
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO) //db에서 자동으로 생성되도록 해준다
   @Column(name="id",nullable = false)
   private UUID id;
 
