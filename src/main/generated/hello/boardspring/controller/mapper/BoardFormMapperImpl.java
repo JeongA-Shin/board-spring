@@ -1,18 +1,50 @@
 package hello.boardspring.controller.mapper;
 
+import hello.boardspring.controller.form.BoardForm.Input.Add;
+import hello.boardspring.controller.form.BoardForm.Input.Modify;
 import hello.boardspring.controller.form.BoardForm.OutPut.Get;
 import hello.boardspring.controller.form.BoardForm.OutPut.GetAll;
 import hello.boardspring.domain.Board;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-03-18T14:10:33+0900",
+    date = "2022-03-18T16:19:49+0900",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_322 (Temurin)"
 )
+@Component
 public class BoardFormMapperImpl extends BoardFormMapper {
+
+    @Override
+    public Board toBoard(Add in) {
+        if ( in == null ) {
+            return null;
+        }
+
+        Board board = new Board();
+
+        board.setTitle( in.getTitle() );
+        board.setDescCont( in.getDescCont() );
+
+        return board;
+    }
+
+    @Override
+    public Board toBoard(Modify in) {
+        if ( in == null ) {
+            return null;
+        }
+
+        Board board = new Board();
+
+        board.setTitle( in.getTitle() );
+        board.setDescCont( in.getDescCont() );
+
+        return board;
+    }
 
     @Override
     public Get toGet(Board in) {
