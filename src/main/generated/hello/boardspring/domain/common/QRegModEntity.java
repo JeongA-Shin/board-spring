@@ -12,7 +12,7 @@ import com.querydsl.core.types.Path;
 /**
  * QRegModEntity is a Querydsl query type for RegModEntity
  */
-@Generated("com.querydsl.codegen.DefaultSupertypeSerializer")
+@Generated("com.querydsl.codegen.SupertypeSerializer")
 public class QRegModEntity extends EntityPathBase<RegModEntity> {
 
     private static final long serialVersionUID = 359131489L;
