@@ -21,7 +21,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class RegModEntity implements Reg,Mod {
+public abstract class RegModEntity implements Reg,Mod{
 
   /**
    * 등록자식별번호
@@ -50,5 +50,7 @@ public abstract class RegModEntity implements Reg,Mod {
   @LastModifiedDate
   @Column(name = "mod_dt")
   private DateTime modDt;
+
+
 
 }
