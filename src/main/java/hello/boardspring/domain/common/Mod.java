@@ -2,6 +2,8 @@ package hello.boardspring.domain.common;
 
 import java.util.UUID;
 import org.joda.time.DateTime;
+//import java.sql.Timestamp;
+
 
 /**
  * DB COLUMNS : MOD_ID, MOD_DT

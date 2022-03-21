@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -35,7 +36,9 @@ public abstract class RegModEntity implements Reg,Mod{
    */
   @CreatedDate
   @Column(name = "reg_dt", nullable = false, updatable = false)
+  @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
   private DateTime regDt;
+//  private Timestamp regDt;
 
   /**
    * 수정자식별번호
@@ -48,9 +51,9 @@ public abstract class RegModEntity implements Reg,Mod{
    * 수정일시
    */
   @LastModifiedDate
+  @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
   @Column(name = "mod_dt")
   private DateTime modDt;
-
-
+//  private Timestamp modDt;
 
 }

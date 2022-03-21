@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.UUID;
 import org.joda.time.DateTime;
 
+
 /**
  * DB COLUMNS : REG_ID, REG_DT
  */
@@ -17,6 +18,6 @@ public interface Reg extends Serializable {
   /**
    * 등록일시
    */
-  DateTime getRegDt();
+   DateTime getRegDt();
 
 }
